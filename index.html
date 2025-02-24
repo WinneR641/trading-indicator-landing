@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Indicator Subscription</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0d1117;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+            background-color: #161b22;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 153, 0, 0.5);
+        }
+        .screenshot {
+            width: 100%;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .plans {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .plan {
+            background-color: #1e2329;
+            padding: 20px;
+            border-radius: 10px;
+            flex: 1;
+            max-width: 300px;
+            box-shadow: 0 0 10px rgba(255, 153, 0, 0.3);
+        }
+        .plan h3 {
+            margin-bottom: 10px;
+        }
+        .price {
+            font-size: 24px;
+            color: #ff9900;
+        }
+        .old-price {
+            text-decoration: line-through;
+            color: #ff6666;
+            margin-right: 5px;
+        }
+        .subscribe-btn {
+            background-color: #ff9900;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Get Access to Our Premium Trading Indicator</h1>
+        <p>Optimize your trades with powerful market insights.</p>
+
+        <img src="https://i.postimg.cc/v4FJQBHV/Screenshot-1.png" alt="Indicator Example 1" class="screenshot">
+        <p>Accurate Buy & Sell Signals to Maximize Your Profit</p>
+        
+        <img src="https://i.postimg.cc/753pbkfQ/Screenshot-2.png" alt="Indicator Example 2" class="screenshot">
+        <p>Clear Market Trends with Enhanced Filtering</p>
+        
+        <img src="https://i.postimg.cc/VSz2CVts/Screenshot-3.png" alt="Indicator Example 3" class="screenshot">
+        <p>Designed for Both Beginners and Experienced Traders</p>
+        
+        <h2>Choose Your Plan</h2>
+        <div class="plans">
+            <div class="plan">
+                <h3>Monthly Subscription</h3>
+                <p><span class="old-price">$50</span> <span class="price">$30</span></p>
+                <button class="subscribe-btn" onclick="subscribe(30)">Subscribe Now</button>
+            </div>
+            <div class="plan">
+                <h3>Lifetime Access</h3>
+                <p><span class="old-price">$400</span> <span class="price">$300</span></p>
+                <button class="subscribe-btn" onclick="subscribe(300)">Get Lifetime Access</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function subscribe(amount) {
+            let email = prompt("Enter Your Email:");
+            let nickname = prompt("Enter Your TradingView Nickname:");
+            if (email && nickname) {
+                window.location.href = `https://novapay.ua/payment?amount=${amount}&email=${email}&nickname=${nickname}`;
+            }
+        }
+    </script>
+</body>
+</html>
