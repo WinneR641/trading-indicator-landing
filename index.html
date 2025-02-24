@@ -60,6 +60,16 @@
             cursor: pointer;
             margin-top: 10px;
         }
+        .form-container {
+            margin-top: 20px;
+        }
+        input {
+            padding: 10px;
+            margin: 5px;
+            width: 80%;
+            border-radius: 5px;
+            border: none;
+        }
     </style>
 </head>
 <body>
@@ -68,35 +78,49 @@
         <p>Optimize your trades with powerful market insights.</p>
 
         <img src="https://i.postimg.cc/v4FJQBHV/Screenshot-1.png" alt="Indicator Example 1" class="screenshot">
-        <p>Accurate Buy & Sell Signals to Maximize Your Profit</p>
+        <p>Accurate Buy & Sell Signals to Maximize Your Profit. This indicator provides real-time trading signals based on market trends and momentum, helping traders make informed decisions.</p>
         
         <img src="https://i.postimg.cc/753pbkfQ/Screenshot-2.png" alt="Indicator Example 2" class="screenshot">
-        <p>Clear Market Trends with Enhanced Filtering</p>
+        <p>Clear Market Trends with Enhanced Filtering. The system eliminates noise, ensuring you only focus on the most profitable trends.</p>
         
         <img src="https://i.postimg.cc/VSz2CVts/Screenshot-3.png" alt="Indicator Example 3" class="screenshot">
-        <p>Designed for Both Beginners and Experienced Traders</p>
+        <p>Designed for Both Beginners and Experienced Traders. Whether you're new to trading or a seasoned pro, this indicator adapts to different market conditions for consistent results.</p>
         
         <h2>Choose Your Plan</h2>
         <div class="plans">
             <div class="plan">
                 <h3>Monthly Subscription</h3>
                 <p><span class="old-price">$50</span> <span class="price">$30</span></p>
-                <button class="subscribe-btn" onclick="subscribe(30)">Subscribe Now</button>
+                <button class="subscribe-btn" onclick="openForm(30)">Subscribe Now</button>
             </div>
             <div class="plan">
                 <h3>Lifetime Access</h3>
                 <p><span class="old-price">$400</span> <span class="price">$300</span></p>
-                <button class="subscribe-btn" onclick="subscribe(300)">Get Lifetime Access</button>
+                <button class="subscribe-btn" onclick="openForm(300)">Get Lifetime Access</button>
             </div>
+        </div>
+
+        <div class="form-container" id="order-form" style="display:none;">
+            <h2>Complete Your Order</h2>
+            <input type="email" id="email" placeholder="Enter Your Email" required><br>
+            <input type="text" id="nickname" placeholder="Enter Your TradingView Nickname" required><br>
+            <button class="subscribe-btn" onclick="processPayment()">Proceed to Payment</button>
         </div>
     </div>
 
     <script>
-        function subscribe(amount) {
-            let email = prompt("Enter Your Email:");
-            let nickname = prompt("Enter Your TradingView Nickname:");
+        let selectedAmount = 0;
+        function openForm(amount) {
+            selectedAmount = amount;
+            document.getElementById("order-form").style.display = "block";
+        }
+        function processPayment() {
+            let email = document.getElementById("email").value;
+            let nickname = document.getElementById("nickname").value;
             if (email && nickname) {
-                window.location.href = `https://novapay.ua/payment?amount=${amount}&email=${email}&nickname=${nickname}`;
+                window.location.href = `https://novapay.ua/payment?amount=${selectedAmount}&email=${email}&nickname=${nickname}`;
+            } else {
+                alert("Please fill in all fields correctly.");
             }
         }
     </script>
